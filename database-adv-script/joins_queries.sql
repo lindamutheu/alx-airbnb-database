@@ -29,16 +29,16 @@ SELECT
   r.rating,
   r.comment,
   r.created_at AS review_date
-FROM
-  Property p
-LEFT JOIN
-  Review r ON p.property_id = r.property_id;
+FROM Property p
+LEFT JOIN Review r ON p.property_id = r.property_id
+ORDER BY p.name ASC, r.created_at DESC;
+
 
 
 ##Write a query using a FULL OUTER JOIN to retrieve all users and all bookings, even if the user has no booking or a booking is not linked to a user.
 
 -- Left join: all users and their bookings (if any)
-SELECT 
+SELECT
   u.user_id,
   u.first_name,
   u.last_name,
@@ -54,7 +54,7 @@ LEFT JOIN Booking b ON u.user_id = b.user_id
 UNION
 
 -- Right join: all bookings and their users (if any)
-SELECT 
+SELECT
   u.user_id,
   u.first_name,
   u.last_name,
